@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday Lakshya♡
-  I love you baby🩷🎀🫂</title>
+  <title>Happy Birthday Lakshya ♡</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
@@ -67,38 +66,23 @@
       display: none;
     }
 
+    /* 🎵 VINYL CIRCLE */
     .vinyl {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 15px auto;
-  animation: spin 8s linear infinite;
-  background: black;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 20px auto;
+      animation: spin 8s linear infinite;
+      background: black;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
     }
 
-.vinyl img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-    .heart {
-      position: fixed;
-      color: #ff8fa3;
-      font-size: 20px;
-      animation: float 6s infinite;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .vinyl img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
     }
 
     @keyframes spin {
@@ -106,9 +90,25 @@
       to { transform: rotate(360deg); }
     }
 
-    @keyframes float {
-      from { bottom: -10%; opacity: 1; }
-      to { bottom: 110%; opacity: 0; }
+    /* ❤️ FLOATING HEARTS */
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      color: #ff8fa3;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-110vh); opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     audio {
@@ -118,104 +118,70 @@
       width: 200px;
       opacity: 0.8;
     }
-    .heart {
-  position: fixed;
-  bottom: -20px;
-  font-size: 20px;
-  animation: floatUp 6s linear infinite;
-  opacity: 0.8;
-}
-
-@keyframes floatUp {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-110vh) scale(1.5);
-    opacity: 0;
-  }
-}
   </style>
 </head>
-  <script>
-  setInterval(() => {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML = "❤️";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = Math.random() * 20 + 15 + "px";
-    document.body.appendChild(heart);
 
-    setTimeout(() => {
-      heart.remove();
-    }, 6000);
-  }, 500);
-  </script>
 <body>
 
-<audio
-  id="bg-music" src="music.mp3" loop autoplay muted>
-  
-</audio>
+<audio id="bg-music" src="music.mp3" loop autoplay muted></audio>
 
-<!-- Section 1: Cover -->
+<!-- SECTION 1 -->
 <section id="cover">
   <div class="card">
     <h1>Happy Birthday</h1>
     <h2>Lakshya 🌙🤍</h2>
-    <p>This is the least i could do😁, also i wanted to ask something😚Ps. say yes.</p>
+    <p>This is the least I could do 😁 also I wanted to ask something 😚 ps. say yes.</p>
     <button onclick="nextSection('letter')">Open Your Gift</button>
   </div>
 </section>
 
-<!-- Section 2: Love Letter -->
+<!-- SECTION 2 -->
 <section id="letter" class="hidden">
   <div class="card">
     <h2>Dear Kitten,</h2>
     <p>
-      Happy Birthday.  
-      You make my days softer and my smiles easier.  
+      Happy Birthday. You make my days softer and my smiles easier.
       Loving you feels like home and today I just wanted you to feel
-      how special you are to me. Also, I'm making a promise, an actual one (hehe) 
-      I will always LOVE you, no matter what.
+      how special you are to me.
     </p>
-    <p> 
-      I hope this little surprise makes you smile the way you make me smile.
-      Side note: I'm so proud of myself to actually keep it a surprise.😭💖
+    <p>
+      I promise I will always love you — no matter what 🩷
     </p>
     <button onclick="nextSection('song')">Next</button>
   </div>
 </section>
 
-<!-- Section 3: Song -->
+<!-- SECTION 3 -->
 <section id="song" class="hidden">
   <div class="card">
-    <h2>A song for you or as you would say us🤭</h2>
-    <div class="music-circle">
-  <img src="Snapchat-1611834098.jpg" alt="Us">
+    <h2>A song for us 🤭</h2>
+
+    <!-- 🎵 FIXED CIRCLE -->
+    <div class="vinyl">
+      <img src="Snapchat-1611834098.jpg" alt="Us">
     </div>
-    <p>Mon cœur te choisit. À chaque fois.✨️</p>
-    <p>(You can embed a Spotify song here)</p>
+
+    <p>Mon cœur te choisit. À chaque fois ✨</p>
     <button onclick="nextSection('date')">Next</button>
   </div>
 </section>
 
-<!-- Section 4: Date -->
+<!-- SECTION 4 -->
 <section id="date" class="hidden">
   <div class="card">
-    <h2>Will you be my valentine, forever?🙈🩷</h2>
+    <h2>Will you be my valentine, forever? 🙈🩷</h2>
     <button onclick="nextSection('dress')">Yes 💘</button>
   </div>
 </section>
 
-<!-- Section 5: Dress Code -->
+<!-- SECTION 5 -->
 <section id="dress" class="hidden">
   <div class="card">
-    <h2>And as a gift to youu😌...</h2>
-    <h1>A Babyy coupon💕💫</h1>
-    <p>It allows you to make me do anything that i can't say no to. And btw i didn't
-    know what to name this coupon you change the name if you want🥲👍🏻🩷.</p>
+    <h2>A Babyy Coupon 💕</h2>
+    <p>
+      Redeemable anytime. No refusals allowed.
+      Name it whatever you want 😌
+    </p>
   </div>
 </section>
 
@@ -226,25 +192,23 @@
     window.scrollTo(0,0);
   }
 
-  // Floating hearts
+  // ❤️ Hearts
   setInterval(() => {
     const heart = document.createElement("div");
     heart.className = "heart";
-    heart.innerHTML = "♥";
+    heart.innerHTML = "❤️";
     heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = 4 + Math.random() * 3 + "s";
     document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 7000);
-  }, 800);
-</script>
-  <script>
-  const music = document.getElementById("bg-music");
+    setTimeout(() => heart.remove(), 6000);
+  }, 500);
 
+  // 🎵 Mobile autoplay fix
+  const music = document.getElementById("bg-music");
   document.addEventListener("click", () => {
     music.muted = false;
     music.play();
   }, { once: true });
-  </script>
- 
+</script>
+
 </body>
 </html>
