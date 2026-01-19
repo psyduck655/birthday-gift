@@ -68,13 +68,26 @@
     }
 
     .vinyl {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #333 40%, #111 60%);
-      margin: 20px auto;
-      animation: spin 5s linear infinite;
-    }
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 20px auto;
+  animation: spin 8s linear infinite;
+  background: black;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.6);
+}
+
+.vinyl img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
     .heart {
       position: fixed;
@@ -105,8 +118,40 @@
       width: 200px;
       opacity: 0.8;
     }
+    .heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.5);
+    opacity: 0;
+  }
+}
   </style>
 </head>
+  <script>
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 6000);
+  }, 500);
+  </script>
 <body>
 
 <!-- Background Music -->
@@ -148,7 +193,9 @@
 <section id="song" class="hidden">
   <div class="card">
     <h2>A song for you or as you would say us🤭</h2>
-    <div class="vinyl"></div>
+    <div class="music-circle">
+  <img src="vinyl.jpg" alt="Us">
+    </div>
     <p>Mon cœur te choisit. À chaque fois.✨️</p>
     <p>(You can embed a Spotify song here)</p>
     <button onclick="nextSection('date')">Next</button>
